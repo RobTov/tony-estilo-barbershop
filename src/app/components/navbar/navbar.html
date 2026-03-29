@@ -1,0 +1,71 @@
+<nav 
+  class="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
+  [class.bg-primary/95]="isScrolled()"
+  [class.backdrop-blur-md]="isScrolled()"
+  [class.border-b]="isScrolled()"
+  [class.border-border-subtle]="isScrolled()"
+  [class.bg-transparent]="!isScrolled()"
+>
+  <div class="max-w-7xl mx-auto px-6 lg:px-8">
+    <div class="flex items-center justify-between h-20">
+      <a href="#hero" class="font-playfair text-2xl font-bold text-text-light tracking-wide">
+        TONY <span class="text-accent">ESTILO</span>
+      </a>
+
+      <div class="hidden lg:flex items-center gap-8">
+        @for (link of navLinks; track link.href) {
+          <button 
+            (click)="scrollToSection(link.href)"
+            class="nav-link text-sm uppercase tracking-wider font-medium"
+          >
+            {{ link.label }}
+          </button>
+        }
+      </div>
+
+      <button 
+        (click)="scrollToSection('#contact')"
+        class="hidden lg:block btn-primary text-sm uppercase tracking-wider"
+      >
+        Reservar
+      </button>
+
+      <button 
+        (click)="toggleMobileMenu()"
+        class="lg:hidden text-text-light p-2"
+        aria-label="Menu"
+      >
+        @if (!isMobileMenuOpen()) {
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+          </svg>
+        } @else {
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+          </svg>
+        }
+      </button>
+    </div>
+  </div>
+
+  @if (isMobileMenuOpen()) {
+    <div class="lg:hidden bg-primary border-t border-border-subtle">
+      <div class="px-6 py-6 flex flex-col gap-4">
+        @for (link of navLinks; track link.href) {
+          <button 
+            (click)="scrollToSection(link.href)"
+            class="text-left text-text-light hover:text-accent transition-colors py-2 text-lg font-medium"
+          >
+            {{ link.label }}
+          </button>
+        }
+        <button 
+          (click)="scrollToSection('#contact')"
+          class="btn-primary text-center mt-4 text-sm uppercase tracking-wider"
+        >
+          Reservar Cita
+        </button>
+      </div>
+    </div>
+  }
+</nav>

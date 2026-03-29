@@ -1,0 +1,55 @@
+<section
+  id="hero"
+  class="relative min-h-screen flex items-center justify-center bg-primary overflow-hidden"
+>
+  <div class="absolute inset-0 bg-gradient-to-b from-secondary/50 to-primary"></div>
+
+  <div class="absolute top-0 right-0 w-1/2 h-full opacity-10">
+    <svg class="w-full h-full" viewBox="0 0 400 800" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M400 0L0 800" stroke="#ED0000" stroke-width="1" />
+      <path d="M350 0L0 800" stroke="#ED0000" stroke-width="1" />
+      <path d="M300 0L0 800" stroke="#ED0000" stroke-width="1" />
+      <path d="M250 0L0 800" stroke="#ED0000" stroke-width="1" />
+      <path d="M200 0L0 800" stroke="#ED0000" stroke-width="1" />
+    </svg>
+  </div>
+
+  <div class="relative z-10 text-center px-6 max-w-5xl mx-auto">
+    <p class="text-accent uppercase tracking-[0.3em] text-sm md:text-base mb-6 font-medium">
+      Madrid Centro
+    </p>
+
+    <h1
+      class="font-playfair text-5xl md:text-7xl lg:text-8xl font-bold text-text-light mb-6 leading-tight"
+    >
+      TONY <span class="text-accent">ESTILO</span><br />
+      <span class="text-4xl md:text-5xl lg:text-6xl">BARBERSHOP</span>
+    </h1>
+
+    <div class="w-24 h-0.5 bg-accent mx-auto mb-8"></div>
+
+    <p class="font-playfair italic text-xl md:text-2xl text-text-muted mb-12 max-w-2xl mx-auto">
+      "The art of men's grooming, redefined"
+    </p>
+
+    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+      <button (click)="scrollToContact()" class="btn-primary text-sm uppercase tracking-wider">
+        Book Appointment
+      </button>
+      <a href="tel:+34612345678" class="btn-secondary text-sm uppercase tracking-wider">
+        Call Now
+      </a>
+    </div>
+  </div>
+
+  <div class="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
+    <svg class="w-6 h-6 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+        d="M19 14l-7 7m0 0l-7-7m7 7V3"
+      />
+    </svg>
+  </div>
+</section>
