@@ -1,22 +1,20 @@
 <section id="schedule" class="py-24 lg:py-32 bg-primary">
   <div class="max-w-4xl mx-auto px-6 lg:px-8">
     <div #scheduleSection class="reveal text-center mb-16">
-      <p class="text-accent uppercase tracking-[0.2em] text-sm mb-4 font-medium">Hours</p>
-      <h2 class="section-title text-text-light mb-6">
-        Our <span class="text-accent">Schedule</span>
-      </h2>
+      <p class="text-accent uppercase tracking-[0.2em] text-sm mb-4 font-medium">{{ label() }}</p>
+      <h2 class="section-title text-text-light mb-6" [innerHTML]="title()"></h2>
       <div class="w-16 h-0.5 bg-accent mx-auto"></div>
     </div>
 
     <div #scheduleSection class="reveal bg-secondary border border-border-subtle">
-      @for (item of schedule; track item.day; let i = $index) {
+      @for (item of getSchedule(); track item.day; let i = $index) {
         <div
           class="flex items-center justify-between px-8 py-5 transition-all duration-300"
           [class.bg-accent/5]="i === currentDayIndex"
           [class.border-l-4]="i === currentDayIndex"
           [class.border-accent]="i === currentDayIndex"
-          [class.border-b]="i < schedule.length - 1"
-          [class.border-border-subtle]="i < schedule.length - 1"
+          [class.border-b]="i < getSchedule().length - 1"
+          [class.border-border-subtle]="i < getSchedule().length - 1"
         >
           <div class="flex items-center gap-4">
             @if (i === currentDayIndex) {
@@ -57,7 +55,7 @@
             d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
           />
         </svg>
-        For appointments outside of business hours, contact us directly
+        {{ note() }}
       </p>
     </div>
   </div>

@@ -1,4 +1,4 @@
-<nav 
+<nav
   class="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
   [class.bg-primary/95]="isScrolled()"
   [class.backdrop-blur-md]="isScrolled()"
@@ -13,8 +13,8 @@
       </a>
 
       <div class="hidden lg:flex items-center gap-8">
-        @for (link of navLinks; track link.href) {
-          <button 
+        @for (link of navLinks(); track link.href) {
+          <button
             (click)="scrollToSection(link.href)"
             class="nav-link text-sm uppercase tracking-wider font-medium"
           >
@@ -23,25 +23,73 @@
         }
       </div>
 
-      <button 
-        (click)="scrollToSection('#contact')"
-        class="hidden lg:block btn-primary text-sm uppercase tracking-wider"
-      >
-        Reservar
-      </button>
+      <div class="hidden lg:flex items-center gap-4">
+        <div class="flex items-center gap-1 bg-secondary/50 rounded-lg p-1">
+          <button
+            (click)="setLanguage('es')"
+            class="flex items-center gap-2 px-3 py-2 rounded-md transition-all duration-200"
+            [class.bg-accent]="currentLang === 'es'"
+            [class.text-primary]="currentLang === 'es'"
+            [class.text-text-muted]="currentLang !== 'es'"
+            [class.hover:text-text-light]="currentLang !== 'es'"
+          >
+            <svg class="w-5 h-4" viewBox="0 0 640 480">
+              <path fill="#c60b1e" d="M0 0h640v480H0z" />
+              <path fill="#ffc400" d="M0 120h640v240H0z" />
+            </svg>
+            <span class="text-xs font-medium">ES</span>
+          </button>
+          <button
+            (click)="setLanguage('en')"
+            class="flex items-center gap-2 px-3 py-2 rounded-md transition-all duration-200"
+            [class.bg-accent]="currentLang === 'en'"
+            [class.text-primary]="currentLang === 'en'"
+            [class.text-text-muted]="currentLang !== 'en'"
+            [class.hover:text-text-light]="currentLang !== 'en'"
+          >
+            <svg class="w-5 h-4" viewBox="0 0 640 480">
+              <path fill="#012169" d="M0 0h640v480H0z" />
+              <path
+                fill="#fff"
+                d="m75 0 244 181L562 0h78v62L400 241l240 178v61h-80L320 301 81 480H0v-60l239-178L0 64V0h75z"
+              />
+              <path
+                fill="#C8102E"
+                d="m424 281 216 159v40L369 281h55zm-184 20 6 35L54 480H0l240-179zM640 0v3L391 191l2-44L590 0h50zM0 0l239 176h-60L0 42V0z"
+              />
+              <path fill="#fff" d="M241 0v480h160V0H241zM0 160v160h640V160H0z" />
+              <path fill="#C8102E" d="M0 193v96h640v-96H0zM273 0v480h96V0h-96z" />
+            </svg>
+            <span class="text-xs font-medium">EN</span>
+          </button>
+        </div>
 
-      <button 
-        (click)="toggleMobileMenu()"
-        class="lg:hidden text-text-light p-2"
-        aria-label="Menu"
-      >
+        <button
+          (click)="scrollToSection('#contact')"
+          class="btn-primary text-sm uppercase tracking-wider"
+        >
+          {{ bookLabel() }}
+        </button>
+      </div>
+
+      <button (click)="toggleMobileMenu()" class="lg:hidden text-text-light p-2" aria-label="Menu">
         @if (!isMobileMenuOpen()) {
           <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M4 6h16M4 12h16M4 18h16"
+            />
           </svg>
         } @else {
           <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M6 18L18 6M6 6l12 12"
+            />
           </svg>
         }
       </button>
@@ -51,19 +99,57 @@
   @if (isMobileMenuOpen()) {
     <div class="lg:hidden bg-primary border-t border-border-subtle">
       <div class="px-6 py-6 flex flex-col gap-4">
-        @for (link of navLinks; track link.href) {
-          <button 
+        <div class="flex items-center gap-2 pb-4 border-b border-border-subtle">
+          <button
+            (click)="setLanguage('es')"
+            class="flex items-center gap-2 px-3 py-2 rounded-md transition-all duration-200"
+            [class.bg-accent]="currentLang === 'es'"
+            [class.text-primary]="currentLang === 'es'"
+            [class.text-text-muted]="currentLang !== 'es'"
+          >
+            <svg class="w-5 h-4" viewBox="0 0 640 480">
+              <path fill="#c60b1e" d="M0 0h640v480H0z" />
+              <path fill="#ffc400" d="M0 120h640v240H0z" />
+            </svg>
+            <span class="text-xs font-medium">ES</span>
+          </button>
+          <button
+            (click)="setLanguage('en')"
+            class="flex items-center gap-2 px-3 py-2 rounded-md transition-all duration-200"
+            [class.bg-accent]="currentLang === 'en'"
+            [class.text-primary]="currentLang === 'en'"
+            [class.text-text-muted]="currentLang !== 'en'"
+          >
+            <svg class="w-5 h-4" viewBox="0 0 640 480">
+              <path fill="#012169" d="M0 0h640v480H0z" />
+              <path
+                fill="#fff"
+                d="m75 0 244 181L562 0h78v62L400 241l240 178v61h-80L320 301 81 480H0v-60l239-178L0 64V0h75z"
+              />
+              <path
+                fill="#C8102E"
+                d="m424 281 216 159v40L369 281h55zm-184 20 6 35L54 480H0l240-179zM640 0v3L391 191l2-44L590 0h50zM0 0l239 176h-60L0 42V0z"
+              />
+              <path fill="#fff" d="M241 0v480h160V0H241zM0 160v160h640V160H0z" />
+              <path fill="#C8102E" d="M0 193v96h640v-96H0zM273 0v480h96V0h-96z" />
+            </svg>
+            <span class="text-xs font-medium">EN</span>
+          </button>
+        </div>
+
+        @for (link of navLinks(); track link.href) {
+          <button
             (click)="scrollToSection(link.href)"
             class="text-left text-text-light hover:text-accent transition-colors py-2 text-lg font-medium"
           >
             {{ link.label }}
           </button>
         }
-        <button 
+        <button
           (click)="scrollToSection('#contact')"
           class="btn-primary text-center mt-4 text-sm uppercase tracking-wider"
         >
-          Reservar Cita
+          {{ mobileBookLabel() }}
         </button>
       </div>
     </div>

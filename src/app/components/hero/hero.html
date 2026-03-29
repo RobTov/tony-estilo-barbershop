@@ -16,7 +16,7 @@
 
   <div class="relative z-10 text-center px-6 max-w-5xl mx-auto">
     <p class="text-accent uppercase tracking-[0.3em] text-sm md:text-base mb-6 font-medium">
-      Madrid Centro
+      {{ location() }}
     </p>
 
     <h1
@@ -29,15 +29,15 @@
     <div class="w-24 h-0.5 bg-accent mx-auto mb-8"></div>
 
     <p class="font-playfair italic text-xl md:text-2xl text-text-muted mb-12 max-w-2xl mx-auto">
-      "The art of men's grooming, redefined"
+      {{ tagline() }}
     </p>
 
     <div class="flex flex-col sm:flex-row gap-4 justify-center">
       <button (click)="scrollToContact()" class="btn-primary text-sm uppercase tracking-wider">
-        Book Appointment
+        {{ bookAppointment() }}
       </button>
       <a href="tel:+34612345678" class="btn-secondary text-sm uppercase tracking-wider">
-        Call Now
+        {{ callNow() }}
       </a>
     </div>
   </div>

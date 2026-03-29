@@ -5,7 +5,7 @@
         <a href="#hero" class="font-playfair text-2xl font-bold text-text-light tracking-wide">
           TONY <span class="text-accent">ESTILO</span>
         </a>
-        <p class="text-text-muted text-sm mt-2">Luxury Barbershop in Madrid</p>
+        <p class="text-text-muted text-sm mt-2">{{ tagline() }}</p>
       </div>
 
       <div class="flex items-center gap-6">
@@ -68,7 +68,7 @@
 
     <div class="mt-8 pt-8 border-t border-border-subtle text-center">
       <p class="text-text-muted text-sm">
-        © {{ currentYear }} Tony Estilo Barbershop. All rights reserved.
+        © {{ currentYear }} Tony Estilo Barbershop. {{ rights() }}
       </p>
     </div>
   </div>

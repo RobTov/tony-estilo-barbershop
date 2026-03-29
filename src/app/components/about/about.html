@@ -1,40 +1,34 @@
 <section id="about" class="py-24 lg:py-32 bg-secondary">
   <div class="max-w-7xl mx-auto px-6 lg:px-8">
-    <div #aboutSection class="reveal grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+    <div #aboutContent class="reveal grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
       <div>
-        <p class="text-accent uppercase tracking-[0.2em] text-sm mb-4 font-medium">About Us</p>
-        <h2 class="section-title text-text-light mb-6">
-          More Than a <span class="text-accent">Barber</span>
-        </h2>
+        <p class="text-accent uppercase tracking-[0.2em] text-sm mb-4 font-medium">{{ label() }}</p>
+        <h2 class="section-title text-text-light mb-6" [innerHTML]="title()"></h2>
         <div class="w-16 h-0.5 bg-accent mb-8"></div>
         <p class="text-text-muted text-lg leading-relaxed mb-6">
-          At Tony Estilo Barbershop, every cut is a masterpiece, every client a gentleman. Our space
-          is designed as a refuge where men can escape the daily chaos and enjoy a premium grooming
-          experience.
+          {{ text1() }}
         </p>
         <p class="text-text-muted text-lg leading-relaxed mb-8">
-          We use traditional techniques combined with modern trends to create timeless looks that
-          reflect your personality. Here, time stands still and conversation flows like between
-          lifelong friends.
+          {{ text2() }}
         </p>
 
         <div class="grid grid-cols-3 gap-8">
           <div class="text-center">
             <p class="font-playfair text-4xl text-accent font-bold mb-2">15+</p>
-            <p class="text-text-muted text-sm uppercase tracking-wider">Years</p>
+            <p class="text-text-muted text-sm uppercase tracking-wider">{{ years() }}</p>
           </div>
           <div class="text-center">
             <p class="font-playfair text-4xl text-accent font-bold mb-2">5000+</p>
-            <p class="text-text-muted text-sm uppercase tracking-wider">Clients</p>
+            <p class="text-text-muted text-sm uppercase tracking-wider">{{ clients() }}</p>
           </div>
           <div class="text-center">
             <p class="font-playfair text-4xl text-accent font-bold mb-2">100%</p>
-            <p class="text-text-muted text-sm uppercase tracking-wider">Passion</p>
+            <p class="text-text-muted text-sm uppercase tracking-wider">{{ passion() }}</p>
           </div>
         </div>
       </div>
 
-      <div #aboutSection class="reveal relative">
+      <div #aboutImage class="reveal relative">
         <div class="aspect-[4/5] overflow-hidden">
           <img
             src="https://images.unsplash.com/photo-1585747860715-2ba37e788b70?w=600&h=750&fit=crop&auto=format"

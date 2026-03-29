@@ -1,10 +1,8 @@
 <section id="gallery" class="py-24 lg:py-32 bg-secondary">
   <div class="max-w-7xl mx-auto px-6 lg:px-8">
     <div #galleryItem class="reveal text-center mb-16">
-      <p class="text-accent uppercase tracking-[0.2em] text-sm mb-4 font-medium">Our Work</p>
-      <h2 class="section-title text-text-light mb-6">
-        Style <span class="text-accent">Gallery</span>
-      </h2>
+      <p class="text-accent uppercase tracking-[0.2em] text-sm mb-4 font-medium">{{ label() }}</p>
+      <h2 class="section-title text-text-light mb-6" [innerHTML]="title()"></h2>
       <div class="w-16 h-0.5 bg-accent mx-auto"></div>
     </div>
 

@@ -1,5 +1,14 @@
-import { Component, OnInit, ElementRef, QueryList, ViewChildren } from '@angular/core';
+import {
+  Component,
+  computed,
+  inject,
+  OnInit,
+  ElementRef,
+  QueryList,
+  ViewChildren,
+} from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { I18nService } from '../../services/i18n.service';
 
 @Component({
   selector: 'app-schedule',
@@ -9,23 +18,32 @@ import { CommonModule } from '@angular/common';
   styleUrl: './schedule.css',
 })
 export class ScheduleComponent implements OnInit {
+  protected i18n = inject(I18nService);
+
   @ViewChildren('scheduleSection') scheduleSections!: QueryList<ElementRef>;
 
-  schedule = [
-    { day: 'Monday', hours: '9:00 - 19:00' },
-    { day: 'Tuesday', hours: '9:00 - 19:00' },
-    { day: 'Wednesday', hours: '9:00 - 19:00' },
-    { day: 'Thursday', hours: '9:00 - 20:00' },
-    { day: 'Friday', hours: '9:00 - 20:00' },
-    { day: 'Saturday', hours: '10:00 - 17:00' },
-    { day: 'Sunday', hours: 'Closed', closed: true },
-  ];
+  protected label = computed(() => this.i18n.t('schedule.label'));
+  protected title = computed(() => this.i18n.t('schedule.title'));
+  protected note = computed(() => this.i18n.t('schedule.note'));
 
-  currentDayIndex = new Date().getDay();
+  get currentDayIndex(): number {
+    const dayIndex = new Date().getDay();
+    return (dayIndex + 6) % 7;
+  }
+
+  getSchedule() {
+    return [
+      { day: this.i18n.t('schedule.monday'), hours: '9:00 - 19:00' },
+      { day: this.i18n.t('schedule.tuesday'), hours: '9:00 - 19:00' },
+      { day: this.i18n.t('schedule.wednesday'), hours: '9:00 - 19:00' },
+      { day: this.i18n.t('schedule.thursday'), hours: '9:00 - 20:00' },
+      { day: this.i18n.t('schedule.friday'), hours: '9:00 - 20:00' },
+      { day: this.i18n.t('schedule.saturday'), hours: '10:00 - 17:00' },
+      { day: this.i18n.t('schedule.sunday'), hours: this.i18n.t('schedule.closed'), closed: true },
+    ];
+  }
 
   ngOnInit() {
-    this.currentDayIndex = (this.currentDayIndex + 6) % 7;
-
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {

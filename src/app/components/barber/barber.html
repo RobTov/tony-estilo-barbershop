@@ -13,25 +13,19 @@
       </div>
 
       <div #barberSection class="reveal order-1 lg:order-2">
-        <p class="text-accent uppercase tracking-[0.2em] text-sm mb-4 font-medium">The Barber</p>
-        <h2 class="section-title text-text-light mb-6">
-          Meet <span class="text-accent">Tony</span>
-        </h2>
+        <p class="text-accent uppercase tracking-[0.2em] text-sm mb-4 font-medium">{{ label() }}</p>
+        <h2 class="section-title text-text-light mb-6" [innerHTML]="title()"></h2>
         <div class="w-16 h-0.5 bg-accent mb-8"></div>
 
         <p class="font-playfair italic text-2xl text-accent mb-6">
-          "Precision, patience, and passion in every snip"
+          {{ quote() }}
         </p>
 
         <p class="text-text-muted text-lg leading-relaxed mb-6">
-          Tony has been perfecting the art of barbering for over 15 years. He began his journey in
-          the classic barbershops of Madrid, learning the traditional techniques that have defined
-          the craft for generations.
+          {{ text1() }}
         </p>
         <p class="text-text-muted text-lg leading-relaxed mb-8">
-          His philosophy is simple: every client deserves personalized attention and a result that
-          exceeds their expectations. It's not just a cut, it's a complete grooming and men's style
-          experience.
+          {{ text2() }}
         </p>
 
         <div class="flex items-center gap-4">
@@ -46,8 +40,8 @@
             </svg>
           </div>
           <div>
-            <p class="text-text-light font-medium">Certified Master Barber</p>
-            <p class="text-text-muted text-sm">Specialist in classic and modern cuts</p>
+            <p class="text-text-light font-medium">{{ certification() }}</p>
+            <p class="text-text-muted text-sm">{{ specialization() }}</p>
           </div>
         </div>
       </div>

@@ -1,5 +1,6 @@
-import { Component, HostListener, signal } from '@angular/core';
+import { Component, HostListener, signal, computed, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { I18nService } from '../../services/i18n.service';
 
 @Component({
   selector: 'app-navbar',
@@ -9,17 +10,24 @@ import { CommonModule } from '@angular/common';
   styleUrl: './navbar.css',
 })
 export class NavbarComponent {
+  protected i18n = inject(I18nService);
+
   isScrolled = signal(false);
   isMobileMenuOpen = signal(false);
 
-  navLinks = [
-    { label: 'Home', href: '#hero' },
-    { label: 'About Us', href: '#about' },
-    { label: 'Tony', href: '#barber' },
-    { label: 'Gallery', href: '#gallery' },
-    { label: 'Hours', href: '#schedule' },
-    { label: 'Contact', href: '#contact' },
-  ];
+  protected lang = this.i18n.currentLang;
+
+  protected navLinks = computed(() => [
+    { label: this.i18n.t('nav.home'), href: '#hero' },
+    { label: this.i18n.t('nav.about'), href: '#about' },
+    { label: this.i18n.t('nav.tony'), href: '#barber' },
+    { label: this.i18n.t('nav.gallery'), href: '#gallery' },
+    { label: this.i18n.t('nav.hours'), href: '#schedule' },
+    { label: this.i18n.t('nav.contact'), href: '#contact' },
+  ]);
+
+  protected bookLabel = computed(() => this.i18n.t('nav.book'));
+  protected mobileBookLabel = computed(() => `${this.i18n.t('nav.book')} Cita`);
 
   @HostListener('window:scroll')
   onScroll() {
@@ -27,7 +35,7 @@ export class NavbarComponent {
   }
 
   toggleMobileMenu() {
-    this.isMobileMenuOpen.update((v) => !v);
+    this.isMobileMenuOpen.update((v: boolean) => !v);
   }
 
   closeMobileMenu() {
@@ -40,5 +48,13 @@ export class NavbarComponent {
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
     }
+  }
+
+  setLanguage(lang: 'en' | 'es') {
+    this.i18n.setLanguage(lang);
+  }
+
+  get currentLang() {
+    return this.i18n.currentLang();
   }
 }
