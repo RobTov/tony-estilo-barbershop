@@ -2,28 +2,34 @@
   <div class="max-w-7xl mx-auto px-6 lg:px-8">
     <div #aboutContent class="reveal grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
       <div>
-        <p class="text-accent uppercase tracking-[0.2em] text-sm mb-4 font-medium">{{ label() }}</p>
-        <h2 class="section-title text-text-light mb-6" [innerHTML]="title()"></h2>
-        <div class="w-16 h-0.5 bg-accent mb-8"></div>
-        <p class="text-text-muted text-lg leading-relaxed mb-6">
-          {{ text1() }}
+        <p class="section-label">{{ i18n.t('about.label') }}</p>
+        <h2 class="section-title" [innerHTML]="i18n.t('about.title')"></h2>
+        <div class="w-12 h-0.5 bg-accent mb-8"></div>
+        <p class="text-white/70 text-lg leading-relaxed mb-6">
+          {{ i18n.t('about.text1') }}
         </p>
-        <p class="text-text-muted text-lg leading-relaxed mb-8">
-          {{ text2() }}
+        <p class="text-white/70 text-lg leading-relaxed mb-12">
+          {{ i18n.t('about.text2') }}
         </p>
 
         <div class="grid grid-cols-3 gap-8">
           <div class="text-center">
             <p class="font-playfair text-4xl text-accent font-bold mb-2">15+</p>
-            <p class="text-text-muted text-sm uppercase tracking-wider">{{ years() }}</p>
+            <p class="text-white/50 text-sm uppercase tracking-wider">
+              {{ i18n.t('about.years') }}
+            </p>
           </div>
           <div class="text-center">
             <p class="font-playfair text-4xl text-accent font-bold mb-2">5000+</p>
-            <p class="text-text-muted text-sm uppercase tracking-wider">{{ clients() }}</p>
+            <p class="text-white/50 text-sm uppercase tracking-wider">
+              {{ i18n.t('about.clients') }}
+            </p>
           </div>
           <div class="text-center">
             <p class="font-playfair text-4xl text-accent font-bold mb-2">100%</p>
-            <p class="text-text-muted text-sm uppercase tracking-wider">{{ passion() }}</p>
+            <p class="text-white/50 text-sm uppercase tracking-wider">
+              {{ i18n.t('about.passion') }}
+            </p>
           </div>
         </div>
       </div>
@@ -33,11 +39,10 @@
           <img
             src="https://images.unsplash.com/photo-1585747860715-2ba37e788b70?w=600&h=750&fit=crop&auto=format"
             alt="Barbershop interior"
-            class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
+            class="w-full h-full object-cover"
           />
         </div>
-        <div class="absolute -bottom-6 -left-6 w-48 h-48 border-2 border-accent -z-10"></div>
-        <div class="absolute -top-6 -right-6 w-32 h-32 bg-accent/10 -z-10"></div>
+        <div class="absolute -bottom-4 -right-4 w-full h-full border border-accent -z-10"></div>
       </div>
     </div>
   </div>

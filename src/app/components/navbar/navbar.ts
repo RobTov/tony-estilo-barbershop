@@ -20,14 +20,10 @@ export class NavbarComponent {
   protected navLinks = computed(() => [
     { label: this.i18n.t('nav.home'), href: '#hero' },
     { label: this.i18n.t('nav.about'), href: '#about' },
-    { label: this.i18n.t('nav.tony'), href: '#barber' },
-    { label: this.i18n.t('nav.gallery'), href: '#gallery' },
+    { label: this.i18n.t('nav.services'), href: '#gallery' },
     { label: this.i18n.t('nav.hours'), href: '#schedule' },
     { label: this.i18n.t('nav.contact'), href: '#contact' },
   ]);
-
-  protected bookLabel = computed(() => this.i18n.t('nav.book'));
-  protected mobileBookLabel = computed(() => `${this.i18n.t('nav.book')} Cita`);
 
   @HostListener('window:scroll')
   onScroll() {

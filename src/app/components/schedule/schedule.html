@@ -1,20 +1,18 @@
 <section id="schedule" class="py-24 lg:py-32 bg-primary">
   <div class="max-w-4xl mx-auto px-6 lg:px-8">
-    <div #scheduleSection class="reveal text-center mb-16">
-      <p class="text-accent uppercase tracking-[0.2em] text-sm mb-4 font-medium">{{ label() }}</p>
-      <h2 class="section-title text-text-light mb-6" [innerHTML]="title()"></h2>
-      <div class="w-16 h-0.5 bg-accent mx-auto"></div>
+    <div #scheduleSection class="reveal text-center mb-12">
+      <p class="section-label">{{ i18n.t('schedule.label') }}</p>
+      <h2 class="section-title" [innerHTML]="i18n.t('schedule.title')"></h2>
+      <div class="w-12 h-0.5 bg-accent mx-auto"></div>
     </div>
 
-    <div #scheduleSection class="reveal bg-secondary border border-border-subtle">
+    <div #scheduleSection class="reveal bg-secondary border border-white/10">
       @for (item of getSchedule(); track item.day; let i = $index) {
         <div
-          class="flex items-center justify-between px-8 py-5 transition-all duration-300"
-          [class.bg-accent/5]="i === currentDayIndex"
+          class="flex items-center justify-between px-8 py-5 transition-all duration-300 border-b border-white/5 last:border-b-0"
+          [class.bg-accent/10]="i === currentDayIndex"
           [class.border-l-4]="i === currentDayIndex"
           [class.border-accent]="i === currentDayIndex"
-          [class.border-b]="i < getSchedule().length - 1"
-          [class.border-border-subtle]="i < getSchedule().length - 1"
         >
           <div class="flex items-center gap-4">
             @if (i === currentDayIndex) {
@@ -23,16 +21,15 @@
             <span
               class="text-lg font-medium"
               [class.text-accent]="i === currentDayIndex"
-              [class.text-text-light]="i !== currentDayIndex"
+              [class.text-white]="i !== currentDayIndex"
             >
               {{ item.day }}
             </span>
           </div>
           <span
             class="font-playfair text-lg"
-            [class.text-text-muted]="item.closed"
-            [class.text-accent]="i === currentDayIndex && !item.closed"
-            [class.text-text-light]="i !== currentDayIndex && !item.closed"
+            [class.text-accent]="i === currentDayIndex"
+            [class.text-white]="i !== currentDayIndex"
           >
             {{ item.hours }}
           </span>
@@ -41,13 +38,8 @@
     </div>
 
     <div #scheduleSection class="reveal mt-8 text-center">
-      <p class="text-text-muted">
-        <svg
-          class="w-5 h-5 inline-block mr-2 text-accent"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-        >
+      <p class="text-white/50 flex items-center justify-center gap-2">
+        <svg class="w-5 h-5 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path
             stroke-linecap="round"
             stroke-linejoin="round"
@@ -55,7 +47,7 @@
             d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
           />
         </svg>
-        {{ note() }}
+        {{ i18n.t('schedule.note') }}
       </p>
     </div>
   </div>

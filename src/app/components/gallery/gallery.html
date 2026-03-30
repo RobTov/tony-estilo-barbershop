@@ -1,16 +1,17 @@
 <section id="gallery" class="py-24 lg:py-32 bg-secondary">
   <div class="max-w-7xl mx-auto px-6 lg:px-8">
     <div #galleryItem class="reveal text-center mb-16">
-      <p class="text-accent uppercase tracking-[0.2em] text-sm mb-4 font-medium">{{ label() }}</p>
-      <h2 class="section-title text-text-light mb-6" [innerHTML]="title()"></h2>
-      <div class="w-16 h-0.5 bg-accent mx-auto"></div>
+      <p class="section-label">{{ i18n.t('gallery.label') }}</p>
+      <h2 class="section-title" [innerHTML]="i18n.t('gallery.title')"></h2>
+      <div class="w-12 h-0.5 bg-accent mx-auto"></div>
     </div>
 
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
       @for (image of images; track image.url; let i = $index) {
         <div
           #galleryItem
-          class="reveal group relative overflow-hidden aspect-[5/6] border border-border-subtle card-hover cursor-pointer"
+          class="reveal group relative overflow-hidden aspect-[5/6] cursor-pointer"
+          [style.transition-delay.ms]="i * 100"
         >
           <img
             [src]="image.url"
@@ -18,15 +19,14 @@
             class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500 group-hover:scale-110"
           />
           <div
-            class="absolute inset-0 bg-gradient-to-t from-primary/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-          >
-            <div class="absolute bottom-4 left-4 right-4">
-              <p class="text-text-light font-medium">{{ image.alt }}</p>
-            </div>
-          </div>
-          <div
-            class="absolute inset-0 border-2 border-accent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
+            class="absolute inset-0 bg-gradient-to-t from-primary via-transparent to-transparent"
           ></div>
+          <div
+            class="absolute inset-0 border border-white/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+          ></div>
+          <div class="absolute bottom-0 left-0 right-0 p-6">
+            <p class="text-white font-medium">{{ image.alt }}</p>
+          </div>
         </div>
       }
     </div>

@@ -1,15 +1,14 @@
 export const en = {
   nav: {
     home: 'Home',
-    about: 'About Us',
-    tony: 'Tony',
-    gallery: 'Gallery',
+    about: 'About',
+    services: 'Services',
     hours: 'Hours',
     contact: 'Contact',
-    book: 'Book',
+    book: 'Book Now',
   },
   hero: {
-    location: 'Madrid Centro',
+    location: 'Arlington',
     tagline: '"The art of men\'s grooming, redefined"',
     bookAppointment: 'Book Appointment',
     callNow: 'Call Now',

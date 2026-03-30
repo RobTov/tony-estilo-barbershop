@@ -1,53 +1,52 @@
 <nav
-  class="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
-  [class.bg-primary/95]="isScrolled()"
-  [class.backdrop-blur-md]="isScrolled()"
-  [class.border-b]="isScrolled()"
-  [class.border-border-subtle]="isScrolled()"
-  [class.bg-transparent]="!isScrolled()"
+  class="fixed top-0 left-0 right-0 z-50 transition-all duration-500"
+  [class.bg-primary]="isScrolled() || isMobileMenuOpen()"
+  [class.bg-transparent]="!isScrolled() && !isMobileMenuOpen()"
 >
   <div class="max-w-7xl mx-auto px-6 lg:px-8">
-    <div class="flex items-center justify-between h-20">
-      <a href="#hero" class="font-playfair text-2xl font-bold text-text-light tracking-wide">
-        TONY <span class="text-accent">ESTILO</span>
-      </a>
-
+    <div class="flex items-center justify-between h-20 lg:h-24">
       <div class="hidden lg:flex items-center gap-8">
-        @for (link of navLinks(); track link.href) {
+        @for (link of navLinks(); track link.href; let i = $index) {
           <button
             (click)="scrollToSection(link.href)"
-            class="nav-link text-sm uppercase tracking-wider font-medium"
+            class="nav-link"
+            [class.nav-link-active]="i === 0"
           >
             {{ link.label }}
           </button>
         }
       </div>
 
-      <div class="hidden lg:flex items-center gap-4">
-        <div class="flex items-center gap-1 bg-secondary/50 rounded-lg p-1">
+      <a
+        href="#hero"
+        class="absolute left-1/2 -translate-x-1/2 lg:static lg:transform-none font-playfair text-2xl lg:text-3xl font-bold text-white tracking-wide"
+      >
+        TONY <span class="text-accent">ESTILO</span>
+      </a>
+
+      <div class="hidden lg:flex items-center gap-6">
+        <div class="flex items-center gap-2">
           <button
             (click)="setLanguage('es')"
-            class="flex items-center gap-2 px-3 py-2 rounded-md transition-all duration-200"
-            [class.bg-accent]="currentLang === 'es'"
-            [class.text-primary]="currentLang === 'es'"
-            [class.text-text-muted]="currentLang !== 'es'"
-            [class.hover:text-text-light]="currentLang !== 'es'"
+            class="flex items-center gap-2 px-3 py-2 text-xs uppercase tracking-wider transition-all duration-200 rounded"
+            [class.text-accent]="currentLang === 'es'"
+            [class.text-white/50]="currentLang !== 'es'"
+            [class.hover:text-white]="currentLang !== 'es'"
           >
-            <svg class="w-5 h-4" viewBox="0 0 640 480">
+            <svg class="w-5 h-4 rounded-sm" viewBox="0 0 640 480">
               <path fill="#c60b1e" d="M0 0h640v480H0z" />
               <path fill="#ffc400" d="M0 120h640v240H0z" />
             </svg>
-            <span class="text-xs font-medium">ES</span>
+            <span>ES</span>
           </button>
           <button
             (click)="setLanguage('en')"
-            class="flex items-center gap-2 px-3 py-2 rounded-md transition-all duration-200"
-            [class.bg-accent]="currentLang === 'en'"
-            [class.text-primary]="currentLang === 'en'"
-            [class.text-text-muted]="currentLang !== 'en'"
-            [class.hover:text-text-light]="currentLang !== 'en'"
+            class="flex items-center gap-2 px-3 py-2 text-xs uppercase tracking-wider transition-all duration-200 rounded"
+            [class.text-accent]="currentLang === 'en'"
+            [class.text-white/50]="currentLang !== 'en'"
+            [class.hover:text-white]="currentLang !== 'en'"
           >
-            <svg class="w-5 h-4" viewBox="0 0 640 480">
+            <svg class="w-5 h-4 rounded-sm" viewBox="0 0 640 480">
               <path fill="#012169" d="M0 0h640v480H0z" />
               <path
                 fill="#fff"
@@ -60,25 +59,22 @@
               <path fill="#fff" d="M241 0v480h160V0H241zM0 160v160h640V160H0z" />
               <path fill="#C8102E" d="M0 193v96h640v-96H0zM273 0v480h96V0h-96z" />
             </svg>
-            <span class="text-xs font-medium">EN</span>
+            <span>EN</span>
           </button>
         </div>
 
-        <button
-          (click)="scrollToSection('#contact')"
-          class="btn-primary text-sm uppercase tracking-wider"
-        >
-          {{ bookLabel() }}
+        <button (click)="scrollToSection('#contact')" class="btn-primary text-xs py-3 px-6">
+          {{ i18n.t('nav.book') }}
         </button>
       </div>
 
-      <button (click)="toggleMobileMenu()" class="lg:hidden text-text-light p-2" aria-label="Menu">
+      <button (click)="toggleMobileMenu()" class="lg:hidden text-white p-2" aria-label="Menu">
         @if (!isMobileMenuOpen()) {
           <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path
               stroke-linecap="round"
               stroke-linejoin="round"
-              stroke-width="2"
+              stroke-width="1.5"
               d="M4 6h16M4 12h16M4 18h16"
             />
           </svg>
@@ -87,7 +83,7 @@
             <path
               stroke-linecap="round"
               stroke-linejoin="round"
-              stroke-width="2"
+              stroke-width="1.5"
               d="M6 18L18 6M6 6l12 12"
             />
           </svg>
@@ -97,30 +93,39 @@
   </div>
 
   @if (isMobileMenuOpen()) {
-    <div class="lg:hidden bg-primary border-t border-border-subtle">
-      <div class="px-6 py-6 flex flex-col gap-4">
-        <div class="flex items-center gap-2 pb-4 border-b border-border-subtle">
+    <div class="lg:hidden bg-primary border-t border-white/10">
+      <div class="px-6 py-8 flex flex-col gap-6">
+        @for (link of navLinks(); track link.href) {
+          <button
+            (click)="scrollToSection(link.href)"
+            class="text-left text-white text-lg font-medium"
+          >
+            {{ link.label }}
+          </button>
+        }
+
+        <div class="flex items-center gap-4 pt-4 border-t border-white/10">
           <button
             (click)="setLanguage('es')"
-            class="flex items-center gap-2 px-3 py-2 rounded-md transition-all duration-200"
+            class="flex items-center gap-2 px-4 py-3 text-sm rounded"
             [class.bg-accent]="currentLang === 'es'"
-            [class.text-primary]="currentLang === 'es'"
-            [class.text-text-muted]="currentLang !== 'es'"
+            [class.text-white]="currentLang === 'es'"
+            [class.text-white/50]="currentLang !== 'es'"
           >
-            <svg class="w-5 h-4" viewBox="0 0 640 480">
+            <svg class="w-5 h-4 rounded-sm" viewBox="0 0 640 480">
               <path fill="#c60b1e" d="M0 0h640v480H0z" />
               <path fill="#ffc400" d="M0 120h640v240H0z" />
             </svg>
-            <span class="text-xs font-medium">ES</span>
+            <span>Español</span>
           </button>
           <button
             (click)="setLanguage('en')"
-            class="flex items-center gap-2 px-3 py-2 rounded-md transition-all duration-200"
+            class="flex items-center gap-2 px-4 py-3 text-sm rounded"
             [class.bg-accent]="currentLang === 'en'"
-            [class.text-primary]="currentLang === 'en'"
-            [class.text-text-muted]="currentLang !== 'en'"
+            [class.text-white]="currentLang === 'en'"
+            [class.text-white/50]="currentLang !== 'en'"
           >
-            <svg class="w-5 h-4" viewBox="0 0 640 480">
+            <svg class="w-5 h-4 rounded-sm" viewBox="0 0 640 480">
               <path fill="#012169" d="M0 0h640v480H0z" />
               <path
                 fill="#fff"
@@ -133,23 +138,12 @@
               <path fill="#fff" d="M241 0v480h160V0H241zM0 160v160h640V160H0z" />
               <path fill="#C8102E" d="M0 193v96h640v-96H0zM273 0v480h96V0h-96z" />
             </svg>
-            <span class="text-xs font-medium">EN</span>
+            <span>English</span>
           </button>
         </div>
 
-        @for (link of navLinks(); track link.href) {
-          <button
-            (click)="scrollToSection(link.href)"
-            class="text-left text-text-light hover:text-accent transition-colors py-2 text-lg font-medium"
-          >
-            {{ link.label }}
-          </button>
-        }
-        <button
-          (click)="scrollToSection('#contact')"
-          class="btn-primary text-center mt-4 text-sm uppercase tracking-wider"
-        >
-          {{ mobileBookLabel() }}
+        <button (click)="scrollToSection('#contact')" class="btn-primary text-center mt-4">
+          {{ i18n.t('nav.book') }}
         </button>
       </div>
     </div>

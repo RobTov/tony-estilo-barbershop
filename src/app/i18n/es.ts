@@ -2,14 +2,13 @@ export const es = {
   nav: {
     home: 'Inicio',
     about: 'Nosotros',
-    tony: 'Tony',
-    gallery: 'Galería',
+    services: 'Servicios',
     hours: 'Horario',
     contact: 'Contacto',
     book: 'Reservar',
   },
   hero: {
-    location: 'Madrid Centro',
+    location: 'Arlington',
     tagline: '"El arte del cuidado masculino, redefinido"',
     bookAppointment: 'Reservar Cita',
     callNow: 'Llamar Ahora',

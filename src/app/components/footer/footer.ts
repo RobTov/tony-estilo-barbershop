@@ -1,4 +1,4 @@
-import { Component, computed, inject } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { I18nService } from '../../services/i18n.service';
 
@@ -13,10 +13,24 @@ export class FooterComponent {
   protected i18n = inject(I18nService);
 
   currentYear = new Date().getFullYear();
-  protected tagline = computed(() => this.i18n.t('footer.tagline'));
-  protected rights = computed(() => this.i18n.t('footer.rights'));
 
   scrollToTop() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  openInstagram() {
+    window.open('https://www.instagram.com/tonystilobarbershop/', '_blank', 'noopener,noreferrer');
+  }
+
+  openFacebook() {
+    window.open(
+      'https://www.facebook.com/people/Tony-Estilo-Barbershop/100086045269938/',
+      '_blank',
+      'noopener,noreferrer',
+    );
+  }
+
+  openWhatsApp() {
+    window.open('https://wa.me/18178180927', '_blank', 'noopener,noreferrer');
   }
 }

@@ -12,15 +12,14 @@ import { I18nService } from '../../services/i18n.service';
 export class HeroComponent {
   protected i18n = inject(I18nService);
 
-  protected location = computed(() => this.i18n.t('hero.location'));
-  protected tagline = computed(() => this.i18n.t('hero.tagline'));
-  protected bookAppointment = computed(() => this.i18n.t('hero.bookAppointment'));
-  protected callNow = computed(() => this.i18n.t('hero.callNow'));
-
-  scrollToContact() {
-    const element = document.querySelector('#contact');
+  scrollToSection(href: string) {
+    const element = document.querySelector(href);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
     }
+  }
+
+  openWhatsApp() {
+    window.open('https://wa.me/18178180927', '_blank', 'noopener,noreferrer');
   }
 }

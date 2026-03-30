@@ -2,30 +2,29 @@
   <div class="max-w-7xl mx-auto px-6 lg:px-8">
     <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
       <div #barberSection class="reveal order-2 lg:order-1 relative">
-        <div class="aspect-square overflow-hidden">
+        <div class="aspect-[4/5] overflow-hidden">
           <img
-            src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&h=600&fit=crop&auto=format"
+            src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&h=750&fit=crop&auto=format"
             alt="Tony - Master Barber"
-            class="w-full h-full object-cover"
+            class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
           />
         </div>
-        <div class="absolute inset-0 border-4 border-accent/30 pointer-events-none"></div>
       </div>
 
       <div #barberSection class="reveal order-1 lg:order-2">
-        <p class="text-accent uppercase tracking-[0.2em] text-sm mb-4 font-medium">{{ label() }}</p>
-        <h2 class="section-title text-text-light mb-6" [innerHTML]="title()"></h2>
-        <div class="w-16 h-0.5 bg-accent mb-8"></div>
+        <p class="section-label">{{ i18n.t('barber.label') }}</p>
+        <h2 class="section-title" [innerHTML]="i18n.t('barber.title')"></h2>
+        <div class="w-12 h-0.5 bg-accent mb-8"></div>
 
-        <p class="font-playfair italic text-2xl text-accent mb-6">
-          {{ quote() }}
+        <p class="font-playfair italic text-2xl text-accent mb-8">
+          {{ i18n.t('barber.quote') }}
         </p>
 
-        <p class="text-text-muted text-lg leading-relaxed mb-6">
-          {{ text1() }}
+        <p class="text-white/70 text-lg leading-relaxed mb-6">
+          {{ i18n.t('barber.text1') }}
         </p>
-        <p class="text-text-muted text-lg leading-relaxed mb-8">
-          {{ text2() }}
+        <p class="text-white/70 text-lg leading-relaxed mb-8">
+          {{ i18n.t('barber.text2') }}
         </p>
 
         <div class="flex items-center gap-4">
@@ -40,8 +39,8 @@
             </svg>
           </div>
           <div>
-            <p class="text-text-light font-medium">{{ certification() }}</p>
-            <p class="text-text-muted text-sm">{{ specialization() }}</p>
+            <p class="text-white font-medium">{{ i18n.t('barber.certification') }}</p>
+            <p class="text-white/50 text-sm">{{ i18n.t('barber.specialization') }}</p>
           </div>
         </div>
       </div>

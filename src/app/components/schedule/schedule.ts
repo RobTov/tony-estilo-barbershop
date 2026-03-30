@@ -33,13 +33,13 @@ export class ScheduleComponent implements OnInit {
 
   getSchedule() {
     return [
-      { day: this.i18n.t('schedule.monday'), hours: '9:00 - 19:00' },
-      { day: this.i18n.t('schedule.tuesday'), hours: '9:00 - 19:00' },
-      { day: this.i18n.t('schedule.wednesday'), hours: '9:00 - 19:00' },
-      { day: this.i18n.t('schedule.thursday'), hours: '9:00 - 20:00' },
-      { day: this.i18n.t('schedule.friday'), hours: '9:00 - 20:00' },
-      { day: this.i18n.t('schedule.saturday'), hours: '10:00 - 17:00' },
-      { day: this.i18n.t('schedule.sunday'), hours: this.i18n.t('schedule.closed'), closed: true },
+      { day: this.i18n.t('schedule.monday'), hours: '9:00 AM - 8:00 PM', closed: false },
+      { day: this.i18n.t('schedule.tuesday'), hours: '9:00 AM - 8:00 PM', closed: false },
+      { day: this.i18n.t('schedule.wednesday'), hours: '9:00 AM - 8:00 PM', closed: false },
+      { day: this.i18n.t('schedule.thursday'), hours: '9:00 AM - 8:00 PM', closed: false },
+      { day: this.i18n.t('schedule.friday'), hours: '9:00 AM - 8:00 PM', closed: false },
+      { day: this.i18n.t('schedule.saturday'), hours: '9:00 AM - 8:00 PM', closed: false },
+      { day: this.i18n.t('schedule.sunday'), hours: '9:00 AM - 5:00 PM', closed: false },
     ];
   }
 

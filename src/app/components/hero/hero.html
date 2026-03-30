@@ -1,49 +1,49 @@
-<section
-  id="hero"
-  class="relative min-h-screen flex items-center justify-center bg-primary overflow-hidden"
->
-  <div class="absolute inset-0 bg-gradient-to-b from-secondary/50 to-primary"></div>
-
-  <div class="absolute top-0 right-0 w-1/2 h-full opacity-10">
-    <svg class="w-full h-full" viewBox="0 0 400 800" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M400 0L0 800" stroke="#ED0000" stroke-width="1" />
-      <path d="M350 0L0 800" stroke="#ED0000" stroke-width="1" />
-      <path d="M300 0L0 800" stroke="#ED0000" stroke-width="1" />
-      <path d="M250 0L0 800" stroke="#ED0000" stroke-width="1" />
-      <path d="M200 0L0 800" stroke="#ED0000" stroke-width="1" />
-    </svg>
+<section id="hero" class="relative min-h-screen flex items-center justify-center overflow-hidden">
+  <div class="absolute inset-0">
+    <img src="/background.jpg" alt="Barbershop background" class="w-full h-full object-cover" />
+    <div class="absolute inset-0 bg-primary/70"></div>
+    <div class="absolute inset-0 bg-gradient-to-t from-primary via-primary/80 to-primary/60"></div>
   </div>
 
-  <div class="relative z-10 text-center px-6 max-w-5xl mx-auto">
-    <p class="text-accent uppercase tracking-[0.3em] text-sm md:text-base mb-6 font-medium">
-      {{ location() }}
+  <div class="relative z-10 text-center px-6 max-w-4xl mx-auto">
+    <p
+      class="text-accent uppercase tracking-[0.3em] text-xs md:text-sm mb-6 font-medium hero-animate"
+    >
+      {{ i18n.t('hero.location') }}
     </p>
 
     <h1
-      class="font-playfair text-5xl md:text-7xl lg:text-8xl font-bold text-text-light mb-6 leading-tight"
+      class="font-playfair text-5xl md:text-7xl lg:text-8xl font-bold text-white mb-6 leading-tight hero-animate"
+      style="animation-delay: 0.1s"
     >
       TONY <span class="text-accent">ESTILO</span><br />
-      <span class="text-4xl md:text-5xl lg:text-6xl">BARBERSHOP</span>
+      <span class="text-3xl md:text-4xl lg:text-5xl font-normal italic">BARBERSHOP</span>
     </h1>
 
-    <div class="w-24 h-0.5 bg-accent mx-auto mb-8"></div>
+    <div class="w-16 h-0.5 bg-accent mx-auto mb-8 hero-animate" style="animation-delay: 0.2s"></div>
 
-    <p class="font-playfair italic text-xl md:text-2xl text-text-muted mb-12 max-w-2xl mx-auto">
-      {{ tagline() }}
+    <p
+      class="font-playfair italic text-xl md:text-2xl text-white/90 mb-12 max-w-2xl mx-auto hero-animate"
+      style="animation-delay: 0.3s"
+    >
+      {{ i18n.t('hero.tagline') }}
     </p>
 
-    <div class="flex flex-col sm:flex-row gap-4 justify-center">
-      <button (click)="scrollToContact()" class="btn-primary text-sm uppercase tracking-wider">
-        {{ bookAppointment() }}
+    <div
+      class="flex flex-col sm:flex-row gap-4 justify-center hero-animate"
+      style="animation-delay: 0.4s"
+    >
+      <button (click)="scrollToSection('#contact')" class="btn-primary">
+        {{ i18n.t('hero.bookAppointment') }}
       </button>
-      <a href="tel:+34612345678" class="btn-secondary text-sm uppercase tracking-wider">
-        {{ callNow() }}
-      </a>
+      <button (click)="openWhatsApp()" class="btn-outline">
+        {{ i18n.t('hero.callNow') }}
+      </button>
     </div>
   </div>
 
   <div class="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
-    <svg class="w-6 h-6 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <svg class="w-6 h-6 text-white/50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
       <path
         stroke-linecap="round"
         stroke-linejoin="round"
