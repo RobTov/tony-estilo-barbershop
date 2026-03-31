@@ -62,7 +62,8 @@ export const es = {
     instagram: 'Instagram',
     facebook: 'Facebook',
     locationNote:
-      'Estamos convenientemente ubicados en Arlington con fácil acceso y estacionamiento disponible. ¡Ven a visitarnos y disfruta de la mejor experiencia de barbería en la ciudad!',
+      'Estamos convenientemente ubicados en Arlington con fácil acceso y estacionamiento disponible. ¡Ven a visitarnos y enjoys de la mejor experiencia de barbería en la ciudad!',
+    openInMaps: 'Abrir en Maps',
     formTitle: 'Solicitar Cita',
     sentTitle: '¡Solicitud Enviada!',
     sentMessage: 'Nos pondremos en contacto contigo pronto para confirmar tu cita.',

@@ -63,6 +63,7 @@ export const en = {
     facebook: 'Facebook',
     locationNote:
       'We are conveniently located in Arlington with easy access and parking available. Come visit us and experience the best barbershop service in town!',
+    openInMaps: 'Open in Maps',
     formTitle: 'Request Appointment',
     sentTitle: 'Request Sent!',
     sentMessage: 'We will contact you soon to confirm your appointment.',
