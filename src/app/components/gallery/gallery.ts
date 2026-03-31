@@ -27,7 +27,7 @@ export class GalleryComponent implements OnInit {
 
   images = [
     {
-      url: 'https://images.unsplash.com/photo-1599351431202-1e0f0137899a?w=500&h=600&fit=crop',
+      url: 'img1.jpeg',
       alt: 'Classic fade haircut',
     },
     {
@@ -35,19 +35,19 @@ export class GalleryComponent implements OnInit {
       alt: 'Beard styling',
     },
     {
-      url: 'https://images.unsplash.com/photo-1503951914875-452162b0f3f1?w=500&h=600&fit=crop',
+      url: 'img2.jpeg',
       alt: 'Precision cut',
     },
     {
-      url: 'https://images.unsplash.com/photo-1622286342621-4bd786c2447c?w=500&h=400&fit=crop',
+      url: 'img3.jpeg',
       alt: 'Modern hairstyle',
     },
     {
-      url: 'https://images.unsplash.com/photo-1605497788044-5a32c7078486?w=500&h=600&fit=crop',
+      url: 'img4.jpg',
       alt: 'Clean shave',
     },
     {
-      url: 'https://images.unsplash.com/photo-1593702288056-7927b442d0fa?w=500&h=400&fit=crop',
+      url: 'img5.jpg',
       alt: 'Textured haircut',
     },
   ];

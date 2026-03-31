@@ -65,7 +65,7 @@ export class ContactComponent implements OnInit {
   protected instagramLabel = computed(() => this.i18n.t('contact.instagram'));
   protected facebookLabel = computed(() => this.i18n.t('contact.facebook'));
   protected locationNote = computed(() => this.i18n.t('contact.locationNote'));
-  protected openInMaps = computed(() => this.i18n.t('contact.openInMaps'));
+  protected openInMapsLabel = computed(() => this.i18n.t('contact.openInMaps'));
 
   ngOnInit() {
     const observer = new IntersectionObserver(

@@ -17,7 +17,7 @@ export const es = {
     label: 'Sobre Nosotros',
     title: 'Más Que un <span class="text-accent">Barbero</span>',
     text1:
-      'En Tony Estilo Barbershop, cada corte es una obra maestra, cada cliente un caballero. Nuestro espacio está diseñado como un refugio donde los hombres pueden escapar del caos diario y disfrutar de una experiencia de grooming premium.',
+      '¡Barbería Dominicana haciendo todos tipos de recortes, fades, tapers, diseños, y mucho más!',
     text2:
       'Utilizamos técnicas tradicionales combinadas con tendencias modernas para crear looks atemporales que reflejan tu personalidad. Aquí, el tiempo se detiene y la conversación fluye como entre amigos de toda la vida.',
     years: 'Años',
@@ -62,7 +62,7 @@ export const es = {
     instagram: 'Instagram',
     facebook: 'Facebook',
     locationNote:
-      'Estamos convenientemente ubicados en Arlington con fácil acceso y estacionamiento disponible. ¡Ven a visitarnos y enjoys de la mejor experiencia de barbería en la ciudad!',
+      'Estamos convenientemente ubicados en Arlington con fácil acceso y estacionamiento disponible. ¡Ven a visitarnos y disfruta de la mejor experiencia de barbería en la ciudad!',
     openInMaps: 'Abrir en Maps',
     formTitle: 'Solicitar Cita',
     sentTitle: '¡Solicitud Enviada!',

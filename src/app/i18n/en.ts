@@ -17,7 +17,7 @@ export const en = {
     label: 'About Us',
     title: 'More Than a <span class="text-accent">Barber</span>',
     text1:
-      'At Tony Estilo Barbershop, every cut is a masterpiece, every client a gentleman. Our space is designed as a refuge where men can escape the daily chaos and enjoy a premium grooming experience.',
+      'Dominican Barber Shop doing all types of haircuts, fades, tapers, designs, and much more!',
     text2:
       'We use traditional techniques combined with modern trends to create timeless looks that reflect your personality. Here, time stands still and conversation flows like between lifelong friends.',
     years: 'Years',

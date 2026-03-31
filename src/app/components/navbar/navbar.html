@@ -6,11 +6,11 @@
   <div class="max-w-7xl mx-auto px-6 lg:px-8">
     <div class="flex items-center justify-between h-20 lg:h-24">
       <div class="hidden lg:flex items-center gap-8">
-        @for (link of navLinks(); track link.href; let i = $index) {
+        @for (link of navLinks(); track link.href) {
           <button
             (click)="scrollToSection(link.href)"
             class="nav-link"
-            [class.nav-link-active]="i === 0"
+            [class.nav-link-active]="isActive(link.href)"
           >
             {{ link.label }}
           </button>
