@@ -29,8 +29,4 @@ export class FooterComponent {
       'noopener,noreferrer',
     );
   }
-
-  openWhatsApp() {
-    window.open('https://wa.me/18178180927', '_blank', 'noopener,noreferrer');
-  }
 }

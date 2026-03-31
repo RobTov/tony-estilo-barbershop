@@ -84,8 +84,8 @@ export class ContactComponent implements OnInit {
     }, 100);
   }
 
-  openWhatsApp() {
-    window.open(`https://wa.me/${this.phone.replace(/\D/g, '')}`, '_blank', 'noopener,noreferrer');
+  callPhone() {
+    window.open(`tel:${this.phone}`, '_blank');
   }
 
   openGoogleMaps() {

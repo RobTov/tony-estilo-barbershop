@@ -18,8 +18,4 @@ export class HeroComponent {
       element.scrollIntoView({ behavior: 'smooth' });
     }
   }
-
-  openWhatsApp() {
-    window.open('https://wa.me/18178180927', '_blank', 'noopener,noreferrer');
-  }
 }
