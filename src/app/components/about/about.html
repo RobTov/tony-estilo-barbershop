@@ -35,12 +35,30 @@
       </div>
 
       <div #aboutImage class="reveal relative">
-        <div class="aspect-[4/5] overflow-hidden">
-          <img
-            src="https://images.unsplash.com/photo-1585747860715-2ba37e788b70?w=600&h=750&fit=crop&auto=format"
-            alt="Barbershop interior"
+        <div class="aspect-[4/5] overflow-hidden cursor-pointer" (click)="toggleVideo()">
+          <video
+            #videoPlayer
+            src="/vid1.mp4"
+            autoplay
+            muted
+            loop
+            playsinline
+            disablePictureInPicture
             class="w-full h-full object-cover"
-          />
+            (error)="onVideoError($event)"
+          ></video>
+          <div
+            *ngIf="!isVideoPlaying"
+            class="absolute inset-0 flex items-center justify-center bg-black/30 hover:bg-black/20 transition-colors"
+          >
+            <div
+              class="w-16 h-16 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center"
+            >
+              <svg class="w-8 h-8 text-white ml-1" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M8 5v14l11-7z" />
+              </svg>
+            </div>
+          </div>
         </div>
         <div class="absolute -bottom-4 -right-4 w-full h-full border border-accent -z-10"></div>
       </div>

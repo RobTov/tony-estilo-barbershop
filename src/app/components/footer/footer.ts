@@ -13,6 +13,8 @@ export class FooterComponent {
   protected i18n = inject(I18nService);
 
   currentYear = new Date().getFullYear();
+  phone = '+1 (817) 818-0927';
+  secondPhone = '+1 (347) 888-1294';
 
   scrollToTop() {
     window.scrollTo({ top: 0, behavior: 'smooth' });

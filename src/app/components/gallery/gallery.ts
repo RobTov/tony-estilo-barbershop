@@ -31,7 +31,8 @@ export class GalleryComponent implements OnInit {
       alt: 'Classic fade haircut',
     },
     {
-      url: 'https://images.unsplash.com/photo-1621605815971-fbc98d665033?w=500&h=400&fit=crop',
+      // url: 'https://images.unsplash.com/photo-1621605815971-fbc98d665033?w=500&h=400&fit=crop',
+      url: 'img6.jpeg',
       alt: 'Beard styling',
     },
     {
@@ -47,7 +48,7 @@ export class GalleryComponent implements OnInit {
       alt: 'Clean shave',
     },
     {
-      url: 'img5.jpg',
+      url: 'img5.jpeg',
       alt: 'Textured haircut',
     },
   ];

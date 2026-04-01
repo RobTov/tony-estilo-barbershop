@@ -23,7 +23,8 @@ export class ContactComponent implements OnInit {
 
   @ViewChildren('contactSection') contactSections!: QueryList<ElementRef>;
 
-  phone = '+18178180927';
+  phone = '+1 (817) 818-0927';
+  secondPhone = '+1 (347) 888-1294';
   address = '3415 S Collins St Suite 109, Arlington, TX 76014';
   email = 'estilotony39@gmail.com';
   facebookUrl = 'https://www.facebook.com/people/Tony-Estilo-Barbershop/100086045269938/';
@@ -85,7 +86,11 @@ export class ContactComponent implements OnInit {
   }
 
   callPhone() {
-    window.open(`tel:${this.phone}`, '_blank');
+    window.open(`tel:${this.phone.replace(/\D/g, '')}`, '_blank');
+  }
+
+  callSecondPhone() {
+    window.open(`tel:${this.secondPhone.replace(/\D/g, '')}`, '_blank');
   }
 
   openGoogleMaps() {

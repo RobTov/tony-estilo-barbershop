@@ -57,6 +57,7 @@ export const es = {
     title: 'Visítanos en <span class="text-accent">Tony Estilo</span>',
     infoTitle: 'Información de Contacto',
     phone: 'Teléfono',
+    phone2: 'Móvil',
     address: 'Dirección',
     email: 'Correo',
     instagram: 'Instagram',
