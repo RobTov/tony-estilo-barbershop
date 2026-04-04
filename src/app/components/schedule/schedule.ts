@@ -39,7 +39,7 @@ export class ScheduleComponent implements OnInit {
       { day: this.i18n.t('schedule.thursday'), hours: '9:00 AM - 9:00 PM', closed: false },
       { day: this.i18n.t('schedule.friday'), hours: '9:00 AM - 9:00 PM', closed: false },
       { day: this.i18n.t('schedule.saturday'), hours: '9:00 AM - 9:00 PM', closed: false },
-      { day: this.i18n.t('schedule.sunday'), hours: '9:00 AM - 5:00 PM', closed: false },
+      { day: this.i18n.t('schedule.sunday'), hours: '9:00 AM - 9:00 PM', closed: false },
     ];
   }
 
