@@ -34,21 +34,6 @@ export class ContactComponent implements OnInit {
 
   locations = [
     {
-      address: '2418 S Collins St, Arlington, TX 76014',
-      mapsUrl:
-        'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3353.1!2d-97.08!3d32.7!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzLCsDQyJzAwLjAiTiA5N8KwMDQnNTguMCJX!5e0!3m2!1sen!2sus!4v1',
-    },
-    {
-      address: '3415 S Collins St Ste 109, Arlington, TX 76014',
-      mapsUrl:
-        'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3353.2!2d-97.08!3d32.7!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzLCsDQyJzAwLjAiTiA5N8KwMDQnNTguMCJX!5e0!3m2!1sen!2sus!4v2',
-    },
-    {
-      address: '816 E Abram St Ste 102, Arlington, TX 76010',
-      mapsUrl:
-        'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3353.3!2d-97.07!3d32.73!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzLCsDQzJzUwLjAiTiA5N8KwMDQnMjQuMCJX!5e0!3m2!1sen!2sus!4v3',
-    },
-    {
       address: '613 E Abram St, Arlington, TX 76010',
       mapsUrl:
         'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3353.4!2d-97.07!3d32.73!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzLCsDQzJzUwLjAiTiA5N8KwMDQnMjQuMCJX!5e0!3m2!1sen!2sus!4v4',
@@ -114,11 +99,15 @@ export class ContactComponent implements OnInit {
   }
 
   prevSlide() {
-    this.currentSlide = this.currentSlide === 0 ? this.locations.length - 1 : this.currentSlide - 1;
+    if (this.locations.length > 1) {
+      this.currentSlide = this.currentSlide === 0 ? this.locations.length - 1 : this.currentSlide - 1;
+    }
   }
 
   nextSlide() {
-    this.currentSlide = this.currentSlide === this.locations.length - 1 ? 0 : this.currentSlide + 1;
+    if (this.locations.length > 1) {
+      this.currentSlide = this.currentSlide === this.locations.length - 1 ? 0 : this.currentSlide + 1;
+    }
   }
 
   goToSlide(index: number) {
@@ -127,7 +116,7 @@ export class ContactComponent implements OnInit {
 
   openMap() {
     window.open(
-      `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(this.locations[this.currentSlide].address)}`,
+      `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(this.address)}`,
       '_blank',
       'noopener,noreferrer',
     );

@@ -117,9 +117,9 @@
                 />
               </svg>
             </div>
-            <div>
+            <div (click)="openMap()" class="cursor-pointer">
               <p class="text-white/50 text-sm">{{ i18n.t('contact.address') }}</p>
-              <p class="text-white text-lg font-medium">{{ locations[currentSlide].address }}</p>
+              <p class="text-white text-lg font-medium">{{ address }}</p>
             </div>
           </div>
 
