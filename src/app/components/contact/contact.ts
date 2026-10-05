@@ -23,9 +23,9 @@ export class ContactComponent implements OnInit {
 
   @ViewChildren('contactSection') contactSections!: QueryList<ElementRef>;
 
-  phone = '+1 (817) 818-0927';
+  phone = '+1 (817) 501-7945';
   secondPhone = '+1 (347) 888-1294';
-  address = '3415 S Collins St Suite 109, Arlington, TX 76014';
+  address = '613 E Abram St, Arlington, TX 76010';
   email = 'estilotony39@gmail.com';
   facebookUrl = 'https://www.facebook.com/people/Tony-Estilo-Barbershop/100086045269938/';
   instagramUrl = 'https://www.instagram.com/tonystilobarbershop/';
