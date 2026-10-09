@@ -27,29 +27,40 @@ export class GalleryComponent implements OnInit {
 
   images = [
     {
-      url: 'img1.jpeg',
+      url: '1.jpg',
       alt: 'Classic fade haircut',
     },
     {
-      // url: 'https://images.unsplash.com/photo-1621605815971-fbc98d665033?w=500&h=400&fit=crop',
-      url: 'img6.jpeg',
+      url: '2.jpeg',
       alt: 'Beard styling',
     },
     {
-      url: 'img2.jpeg',
+      url: '3.jpeg',
       alt: 'Precision cut',
     },
     {
-      url: 'img3.jpeg',
+      url: '4.jpeg',
       alt: 'Modern hairstyle',
     },
     {
-      url: 'img4.jpg',
+      url: '5.jpeg',
       alt: 'Clean shave',
     },
     {
-      url: 'img5.jpeg',
+      url: '6.jpeg',
       alt: 'Textured haircut',
+    },
+    {
+      url: '7.jpeg',
+      alt: 'Barber styling',
+    },
+    {
+      url: '8.jpeg',
+      alt: 'Sharp line up',
+    },
+    {
+      url: '9.jpeg',
+      alt: 'Signature cut',
     },
   ];
 
