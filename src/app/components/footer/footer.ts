@@ -14,7 +14,7 @@ export class FooterComponent {
 
   currentYear = new Date().getFullYear();
   phone = '+1 (817) 501-7945';
-  secondPhone = '+1 (347) 888-1294';
+  secondPhone = '+1 (682) 449-9492';
 
   scrollToTop() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
