@@ -1,6 +1,9 @@
 <section id="hero" class="relative min-h-screen flex items-center justify-center overflow-hidden">
   <div class="absolute inset-0">
-    <img src="/background.jpg" alt="Barbershop background" class="w-full h-full object-cover" />
+    <picture class="block w-full h-full">
+      <source media="(max-width: 767px)" srcset="/background-mobile.jpg" />
+      <img src="/background.jpg" alt="Barbershop background" class="w-full h-full object-cover" />
+    </picture>
     <div class="absolute inset-0 bg-primary/70"></div>
     <div class="absolute inset-0 bg-gradient-to-t from-primary via-primary/80 to-primary/60"></div>
   </div>
