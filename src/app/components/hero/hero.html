@@ -1,9 +1,13 @@
 <section id="hero" class="relative min-h-screen flex items-center justify-center overflow-hidden">
   <div class="absolute inset-0">
-    <picture class="block w-full h-full">
-      <source media="(max-width: 767px)" srcset="/background-mobile.jpg" />
-      <img src="/background.jpg" alt="Barbershop background" class="w-full h-full object-cover" />
-    </picture>
+    @for (slide of slides; track slide.url; let i = $index) {
+      <img
+        [src]="slide.url"
+        [alt]="slide.alt"
+        class="hero-slide absolute inset-0 w-full h-full object-cover"
+        [class.hero-slide-active]="i === activeSlide()"
+      />
+    }
     <div class="absolute inset-0 bg-primary/70"></div>
     <div class="absolute inset-0 bg-gradient-to-t from-primary via-primary/80 to-primary/60"></div>
   </div>
@@ -44,6 +48,20 @@
       </a>
     </div>
   </div>
+
+  @if (slides.length > 1) {
+    <div class="absolute bottom-20 left-1/2 -translate-x-1/2 z-10 flex gap-2">
+      @for (slide of slides; track slide.url; let i = $index) {
+        <button
+          type="button"
+          (click)="goToSlide(i)"
+          class="hero-slide-dot h-1.5 rounded-full transition-all duration-300"
+          [class.hero-slide-dot-active]="i === activeSlide()"
+          [attr.aria-label]="'Go to slide ' + (i + 1)"
+        ></button>
+      }
+    </div>
+  }
 
   <div class="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
     <svg class="w-6 h-6 text-white/50" fill="none" stroke="currentColor" viewBox="0 0 24 24">

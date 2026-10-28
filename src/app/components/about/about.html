@@ -46,6 +46,8 @@
             disablePictureInPicture
             class="w-full h-full object-cover"
             (error)="onVideoError($event)"
+            (playing)="isVideoPlaying = true"
+            (pause)="isVideoPlaying = false"
           ></video>
           <div
             *ngIf="!isVideoPlaying"

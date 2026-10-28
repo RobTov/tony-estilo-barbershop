@@ -62,14 +62,9 @@ export class AboutComponent implements OnInit, AfterViewInit {
     const video = this.videoPlayer?.nativeElement;
     if (video) {
       video.muted = true;
-      video
-        .play()
-        .then(() => {
-          this.isVideoPlaying = true;
-        })
-        .catch((err) => {
-          console.warn('Autoplay failed:', err);
-        });
+      video.play().catch((err) => {
+        console.warn('Autoplay failed:', err);
+      });
     }
   }
 
@@ -77,12 +72,9 @@ export class AboutComponent implements OnInit, AfterViewInit {
     const video = this.videoPlayer?.nativeElement;
     if (video) {
       if (video.paused) {
-        video.play().then(() => {
-          this.isVideoPlaying = true;
-        });
+        video.play();
       } else {
         video.pause();
-        this.isVideoPlaying = false;
       }
     }
   }
